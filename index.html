@@ -5,40 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Submarine Escape Game</title>
 <style>
-  :root { --dark: #0a2669; }
-  /* Lock the screen so the user cannot scroll or move the game */
-  body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: var(--dark); }
+  body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: #0a2669; }
+  
+  /* 🪟 THE VIEWPORT */
+  iframe { width: 100vw; height: 100vh; border: none; display: block; }
 
-  /* 🪟 THE VIEWPORT: This forces the game to fill your 4K monitor exactly */
-  iframe { 
-    width: 100vw; 
-    height: 100vh; 
-    border: none; 
-    display: block; 
+  /* 🛡️ BASE SHIELD STYLE */
+  .shield {
+    position: fixed;
+    bottom: 0;
+    background: #2c3f7c; /* Your specific block color */
+    z-index: 999;
+    pointer-events: auto; /* Blocks clicks from passing through */
   }
 
-  /* 🛡️ THE SHIELDS: These block the Genially "Sign Up" and "Terms" links */
-  .shield {
-  position: fixed; 
-  bottom: 0; 
-  width: 300px; 
-  height: 75px; 
-  background: var(--dark); 
-  z-index: 999; 
-  
-  /* 🟢 CHANGE THESE TWO LINES: */
-  opacity: 0;             /* Makes it invisible */
-  pointer-events: none;   /* Allows users to click "through" it to the game */
-}
+  /* 🟢 LEFT BLOCK: Customized size */
+  #shield-left {
+    left: 0;
+    width: 150px;  /* Make wider or narrower here */
+    height: 40px;  /* Make taller or shorter here */
+  }
 
-/* Keep these! They tell the shields where to sit if you ever turn them back on */
-.left { left: 0; }
-.right { right: 0; }
+  /* 🔵 RIGHT BLOCK: Customized size */
+  #shield-right {
+    right: 0;
+    width: 180px;  /* Make wider or narrower here */
+    height: 50px;  /* Make taller or shorter here */
+  }
 </style>
 </head>
 <body>
 
-  <!-- ✅ INTEGRATED GENIALLY CODE: We use your src and title but set scrolling to "no" -->
+  <!-- ✅ INTEGRATED GENIALLY CODE: scrolling="no" is critical for the shields to stay aligned -->
   <iframe 
     title="AAVL Submarine escape game" 
     src="https://view.genially.com/69983858a0bf458ace402a75" 
@@ -49,9 +47,9 @@
     allownetworking="all">
   </iframe>
 
-  <!-- These blocks cover the Genially "Free Plan" buttons in the corners -->
-  <div class="shield left"></div>
-  <div class="shield right"></div>
+  <!-- THE TWO UNIQUE BLOCKS -->
+  <div id="shield-left" class="shield"></div>
+  <div id="shield-right" class="shield"></div>
 
 </body>
 </html>
