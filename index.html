@@ -19,16 +19,21 @@
 
   /* 🛡️ THE SHIELDS: These block the Genially "Sign Up" and "Terms" links */
   .shield {
-    position: fixed; 
-    bottom: 0; 
-    width: 300px; 
-    height: 75px; 
-    background: var(--dark); 
-    z-index: 999; 
-    pointer-events: auto; 
-  }
-  .left { left: 0; }
-  .right { right: 0; }
+  position: fixed; 
+  bottom: 0; 
+  width: 300px; 
+  height: 75px; 
+  background: var(--dark); 
+  z-index: 999; 
+  
+  /* 🟢 CHANGE THESE TWO LINES: */
+  opacity: 0;             /* Makes it invisible */
+  pointer-events: none;   /* Allows users to click "through" it to the game */
+}
+
+/* Keep these! They tell the shields where to sit if you ever turn them back on */
+.left { left: 0; }
+.right { right: 0; }
 </style>
 </head>
 <body>
